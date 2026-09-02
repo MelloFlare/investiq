@@ -1,6 +1,8 @@
 from fastapi import FastAPI
+
 from app.database import check_db_connection
 from app.routes import portfolios
+from app.models import user, portfolio
 
 app = FastAPI(title="InvestIQ")
 app.include_router(portfolios.router)
