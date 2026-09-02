@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from app.database import check_db_connection
+from app.routes import portfolios
 
 app = FastAPI(title="InvestIQ")
+app.include_router(portfolios.router)
 
 @app.get("/")
 def root():
