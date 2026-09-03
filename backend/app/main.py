@@ -3,9 +3,11 @@ from fastapi import FastAPI
 from app.database import check_db_connection
 from app.routes import portfolios
 from app.models import user, portfolio
+from app.routes import assets
 
 app = FastAPI(title="InvestIQ")
 app.include_router(portfolios.router)
+app.include_router(assets.router)
 
 @app.get("/")
 def root():
