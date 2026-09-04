@@ -4,10 +4,13 @@ from app.database import check_db_connection
 from app.routes import portfolios
 from app.models import user, portfolio
 from app.routes import assets
+from app.routes import asset_history
 
 app = FastAPI(title="InvestIQ")
 app.include_router(portfolios.router)
 app.include_router(assets.router)
+
+app.include_router(asset_history.router)
 
 @app.get("/")
 def root():
